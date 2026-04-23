@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Gonçalves | Hair Style - Poder e Autoridade</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #000000;
+            --primary-gold: #C5A065;
+            --gold-light: #e8d5b0;
+            --action-ruby: #800020;
+            --text-light: #D1C7B7;
+            --text-muted: #8a7d6e;
+            --text-dark: #000000;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(197, 160, 101, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .main-menu a:hover { color: var(--white); }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--action-ruby);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            box-shadow: 0px 5px 15px rgba(197, 160, 101, 0.4);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 10% 120px 10%;
+            min-height: 70vh;
+            position: relative;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text span {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.8rem;
+            line-height: 1.0;
+            margin: 15px 0 30px 0;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        /* Foto hero: fade para o fundo — sem hover, sem efeitos */
+        .hero-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+            /* Máscara que dissolve as bordas no fundo preto */
+            -webkit-mask-image:
+                radial-gradient(ellipse 85% 80% at 55% 45%,
+                    black 30%,
+                    rgba(0,0,0,0.6) 55%,
+                    rgba(0,0,0,0.1) 72%,
+                    transparent 100%);
+            mask-image:
+                radial-gradient(ellipse 85% 80% at 55% 45%,
+                    black 30%,
+                    rgba(0,0,0,0.6) 55%,
+                    rgba(0,0,0,0.1) 72%,
+                    transparent 100%);
+            /* Sem hover, sem transform, sem sombra — pura difusão */
+        }
+
+        /* Véu dourado atmosférico sobre a imagem */
+        .hero-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 40%,
+                rgba(197, 160, 101, 0.04) 0%,
+                transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ── SEÇÃO SOBRE ── */
+        .sobre {
+            padding: 120px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            border-top: 1px solid rgba(197, 160, 101, 0.08);
+        }
+
+        .sobre-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(197,160,101,0.25);
+        }
+
+        .sobre h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .sobre p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .sobre-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* Coluna visual da seção sobre */
+        .sobre-visual {
+            position: relative;
+        }
+
+        .sobre-visual-box {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border: 1px solid rgba(197,160,101,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-visual-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(197,160,101,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(128,0,32,0.1) 0%, transparent 50%);
+        }
+
+        /* Ornamento tipográfico decorativo */
+        .sobre-visual-box .ornament {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .ornament-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--primary-gold), transparent);
+        }
+
+        .ornament-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--primary-gold);
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+
+        .ornament-name {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Canto decorativo dourado */
+        .sobre-visual::before,
+        .sobre-visual::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: var(--primary-gold);
+            border-style: solid;
+            opacity: 0.4;
+        }
+
+        .sobre-visual::before {
+            top: -10px;
+            left: -10px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .sobre-visual::after {
+            bottom: -10px;
+            right: -10px;
+            border-width: 0 1px 1px 0;
+        }
+
+        /* ── SERVIÇOS ── */
+        .services {
+            padding: 120px 10%;
+            background-color: #050505;
+            border-top: 1px solid rgba(197, 160, 101, 0.08);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-eyebrow {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px; /* junção de borda sutil */
+        }
+
+        /* Card redesenhado: descrição sempre visível */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+            border: 1px solid rgba(197,160,101,0.15);
+            transition: border-color 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(197,160,101,0.5);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+            filter: brightness(0.55) saturate(0.8);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.45) saturate(0.7);
+        }
+
+        /* Overlay sempre presente com gradiente forte na base */
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 36px;
+            background: linear-gradient(
+                transparent 0%,
+                rgba(0,0,0,0.4) 25%,
+                rgba(0,0,0,0.92) 65%,
+                rgba(0,0,0,0.98) 100%
+            );
+        }
+
+        .service-tag {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            opacity: 0.7;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .service-overlay h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        /* Descrição sempre visível */
+        .service-desc {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding-top: 16px;
+            border-top: 1px solid rgba(197,160,101,0.15);
+        }
+
+        /* ── SEÇÃO CONTATO ── */
+        .contato {
+            padding: 120px 10%;
+            border-top: 1px solid rgba(197, 160, 101, 0.08);
+        }
+
+        .contato-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contato-left h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .contato-left p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+
+        .contato-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contato-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(197,160,101,0.08);
+        }
+
+        .contato-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(197,160,101,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--primary-gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .info-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Formulário / CTA lado direito */
+        .contato-right {
+            border: 1px solid rgba(197,160,101,0.12);
+            padding: 50px 44px;
+            background: linear-gradient(135deg, rgba(197,160,101,0.02) 0%, transparent 60%);
+            position: relative;
+        }
+
+        .contato-right::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 40px; height: 1px;
+            background: var(--primary-gold);
+        }
+
+        .contato-right::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 1px; height: 40px;
+            background: var(--primary-gold);
+        }
+
+        .form-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .contato-right h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(197,160,101,0.15);
+            color: var(--text-light);
+            padding: 14px 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        .form-field input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .form-field select option {
+            background: #111;
+            color: var(--text-light);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            border-color: rgba(197,160,101,0.5);
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 60px 10%;
+            text-align: center;
+            background-color: var(--bg-color);
+            border-top: 1px solid rgba(197, 160, 101, 0.08);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* Linha ornamental */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 0 10%;
+            padding: 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(197,160,101,0.12);
+        }
+
+        .divider-diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-gold);
+            transform: rotate(45deg);
+            opacity: 0.4;
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 992px) {
+            .hero-text h1 { font-size: 3.8rem; }
+            .hero-text { padding-right: 30px; }
+            .main-menu { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .sobre { grid-template-columns: 1fr; gap: 50px; }
+            .sobre-visual { display: none; }
+            .contato-inner { grid-template-columns: 1fr; gap: 50px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 60px; }
+            .hero-text { padding-right: 0; margin-top: 50px; }
+            .hero-text h1 { font-size: 3rem; }
+            header { padding: 40px 5%; }
+            .logo { font-size: 1.8rem; }
+            .services { padding: 80px 5%; }
+            .sobre { padding: 80px 5%; }
+            .contato { padding: 80px 5%; }
+            .contato-right { padding: 36px 28px; }
+            .sobre-stats { flex-wrap: wrap; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Ana Gonçalves | Hair Style</div>
+        <nav class="main-menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+            <a href="#contato" class="cta-button">Agendar</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <span>"Sua Imagem Sob Meu Comando"</span>
+            <h1>Domine sua imagem.<br>Revele seu poder.</h1>
+            <a href="#contato" class="cta-button" style="margin-top: 20px;">Agendar minha transformação</a>
+        </div>
+        <div class="hero-img">
+            <img src="ana.png" alt="Ana Gonçalves">
+        </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="sobre-content">
+            <span class="sobre-badge">Sobre Ana Gonçalves</span>
+            <h2>Especialista em Imagem de Alta Performance</h2>
+            <p>
+                Mais do que cabelo, aqui é sobre identidade.
+Cada detalhe é pensado para valorizar sua presença, respeitando sua essência e elevando sua confiança.
+            </p>
+            <p>
+                Conduzido por experiência, intuição e um padrão claro: entregar exatamente o que faz sentido para você.
+            </p>
+            <div class="sobre-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Anos de expertise</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">800+</span>
+                    <span class="stat-label">Clientes atendidas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Dedicação exclusiva</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sobre-visual">
+            <div class="sobre-visual-box">
+                <div class="ornament">
+                    <div class="ornament-line"></div>
+                    <p class="ornament-quote">
+                        "Beleza não é vaidade.<br>É a linguagem mais silenciosa<br>da sua autoridade."
+                    </p>
+                    <span class="ornament-name">— Ana Gonçalves</span>
+                    <div class="ornament-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+    <!-- SERVIÇOS -->
+   <section id="servicos" class="services">
+        <div class="section-header">
+            <span class="section-eyebrow">O que oferecemos</span>
+            <h2 class="section-title">O Arsenal de Beleza</h2>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="mechas.jpg" alt="Design de Cor">
+                <div class="service-overlay">
+                    <span class="service-tag">Colorimetria</span>
+                    <h3>Design de Cor</h3>
+                    <p class="service-desc">
+                        Mechas, balayage e tonalização de alto impacto, executadas com produtos premium. Cada técnica é personalizada para o seu tom de pele e estilo de vida.
+                    </p>
+                    <span class="service-price">Sob consulta · Agendamento exclusivo</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="corte.jpg" alt="Corte de Autoridade">
+                <div class="service-overlay">
+                    <span class="service-tag">Visagismo</span>
+                    <h3>Corte de Autoridade</h3>
+                    <p class="service-desc">
+                        Cortes estruturados com estudo de formato de rosto e análise de imagem profissional. Para mulheres que comunicam liderança e elegância.
+                    </p>
+                    <span class="service-price">Sob consulta · Agendamento exclusivo</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="tratamento.jpg" alt="Rituais de Luxo">
+                <div class="service-overlay">
+                    <span class="service-tag">Tratamentos</span>
+                    <h3>Rituais de Luxo</h3>
+                    <p class="service-desc">
+                        Protocolos de nutrição, reconstrução e brilho com ativos exclusivos. Tratamentos profundos que restauram a vitalidade dos fios ao nível máximo.
+                    </p>
+                    <span class="service-price">Sob consulta · Agendamento exclusivo</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="contato-inner">
+
+            <div class="contato-left">
+                <span class="sobre-badge">Entre em contato</span>
+                <h2>Garanta seu espaço com exclusividade.</h2>
+                <p>
+                    A agenda de Ana é selecionada e limitada. Preencha ao lado e receba a confirmação diretamente via WhatsApp. A exclusividade é para quem age primeiro.
+                </p>
+
+                <div class="contato-info">
+                    <div class="contato-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <span class="info-label">Localização</span>
+                            <span class="info-value">São José dos Campos, SP</span>
+                        </div>
+                    </div>
+                    <div class="contato-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+                        </div>
+                        <div>
+                            <span class="info-label">WhatsApp</span>
+                            <span class="info-value">(12) 99999-9999</span>
+                        </div>
+                    </div>
+                    <div class="contato-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div>
+                            <span class="info-label">Horário de atendimento</span>
+                            <span class="info-value">Seg – Sáb · 9h às 19h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contato-right">
+                <span class="form-eyebrow">Agendamento</span>
+                <h3>Inicie sua transformação agora</h3>
+
+                <div class="form-field">
+                    <label>Seu nome</label>
+                    <input type="text" id="nome" placeholder="Como prefere ser chamada?">
+                </div>
+                <div class="form-field">
+                    <label>WhatsApp</label>
+                    <input type="tel" id="telefone" placeholder="(12) 99999-9999">
+                </div>
+                <div class="form-field">
+                    <label>Serviço de interesse</label>
+                    <select id="servico">
+                        <option value="">Selecione um serviço</option>
+                        <option value="Design de Cor">Design de Cor</option>
+                        <option value="Corte de Autoridade">Corte de Autoridade</option>
+                        <option value="Rituais de Luxo">Rituais de Luxo</option>
+                    </select>
+                </div>
+
+                <a href="#" class="cta-button form-submit" onclick="dispararAgendamento(event)">
+                    Agendar via WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Ana Gonçalves | Hair Style</div>
+        <p class="footer-copy">© 2025 · Todos os direitos reservados · São José dos Campos, SP</p>
+    </footer>
+
+    <script>
+        function dispararAgendamento(e) {
+            e.preventDefault();
+
+            const nome    = document.getElementById('nome')?.value.trim() || '';
+            const tel     = document.getElementById('telefone')?.value.trim() || '';
+            const servico = document.getElementById('servico')?.value || '';
+
+            let texto = 'Olá Ana! Quero agendar minha transformação de imagem.';
+
+            if (nome)    texto += `\n\nMeu nome: ${nome}`;
+            if (tel)     texto += `\nMeu WhatsApp: ${tel}`;
+            if (servico) texto += `\nServiço de interesse: ${servico}`;
+
+            const url = `https://wa.me/5512999999999?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
